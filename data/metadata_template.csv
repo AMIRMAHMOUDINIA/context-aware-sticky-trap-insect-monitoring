@@ -1,0 +1,2 @@
+image_path,species,device,trap_color,split,group_id
+relative/path/example.jpg,tribolium_castaneum,dslr,yellow,train,physical_sample_001

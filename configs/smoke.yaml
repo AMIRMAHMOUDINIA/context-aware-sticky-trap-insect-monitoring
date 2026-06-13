@@ -1,0 +1,41 @@
+seed: 42
+output_dir: reports/smoke
+
+data:
+  manifest: data/smoke/metadata.csv
+  image_root: data/smoke/images
+  target_column: species
+  context_columns: [device, trap_color]
+  split_strategy: stratified
+  train_fraction: 0.70
+  val_fraction: 0.15
+  test_fraction: 0.15
+  group_column: null
+  enforce_group_disjoint: true
+  holdout_column: null
+  holdout_value: null
+  image_size: 96
+  num_workers: 0
+
+model:
+  backbone: tiny_cnn
+  pretrained: false
+  use_context: true
+  embedding_dim: 8
+  hidden_dim: 64
+  dropout: 0.20
+
+training:
+  epochs: 2
+  batch_size: 16
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  patience: 2
+  class_weighted_loss: true
+  device: cpu
+
+augmentation:
+  horizontal_flip: 0.5
+  vertical_flip: 0.2
+  brightness: 0.10
+  contrast: 0.10

@@ -1,0 +1,48 @@
+seed: 42
+output_dir: reports/active_learning
+
+data:
+  manifest: data/metadata.csv
+  image_root: data/raw/figshare
+  target_column: species
+  context_columns: [device, trap_color]
+  split_strategy: predefined_or_grouped
+  train_fraction: 0.70
+  val_fraction: 0.15
+  test_fraction: 0.15
+  group_column: group_id
+  enforce_group_disjoint: true
+  holdout_column: null
+  holdout_value: null
+  image_size: 224
+  num_workers: 4
+
+model:
+  backbone: resnet18
+  pretrained: true
+  use_context: true
+  embedding_dim: 8
+  hidden_dim: 128
+  dropout: 0.30
+
+training:
+  epochs: 8
+  batch_size: 32
+  learning_rate: 0.0003
+  weight_decay: 0.0001
+  patience: 3
+  class_weighted_loss: true
+  device: auto
+
+augmentation:
+  horizontal_flip: 0.5
+  vertical_flip: 0.2
+  brightness: 0.15
+  contrast: 0.15
+
+active_learning:
+  strategies: [random, entropy]
+  initial_fraction: 0.10
+  query_fraction: 0.10
+  rounds: 5
+  repeats: 3

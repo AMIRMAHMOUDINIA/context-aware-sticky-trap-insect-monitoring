@@ -1,0 +1,44 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the repository and the source dataset."
+title: "Context-Aware Insect Recognition on Sticky Traps"
+type: software
+authors:
+  - family-names: Mahmoudinia
+    given-names: Amir Mohammad
+version: 0.4.0
+date-released: 2026-06-13
+license: MIT
+repository-code: "https://github.com/AMIRMAHMOUDINIA/context-aware-sticky-trap-insect-monitoring"
+preferred-citation:
+  type: software
+  authors:
+    - family-names: Mahmoudinia
+      given-names: Amir Mohammad
+  title: "Context-Aware Insect Recognition on Sticky Traps"
+  version: 0.4.0
+  year: 2026
+references:
+  - type: article
+    authors:
+      - family-names: Ong
+        given-names: Song-Quan
+      - family-names: Høye
+        given-names: Toke Thomas
+    title: "An annotated image dataset of pests on different coloured sticky traps acquired with different imaging devices"
+    journal: "Data in Brief"
+    volume: 55
+    year: 2024
+    doi: 10.1016/j.dib.2024.110741
+
+  - type: article
+    authors:
+      - family-names: Ong
+        given-names: Song-Quan
+      - family-names: Høye
+        given-names: Toke Thomas
+    title: "Trap colour strongly affects the ability of deep learning models to recognize insect species in images of sticky traps"
+    journal: "Pest Management Science"
+    volume: 81
+    pages: 654-666
+    year: 2025
+    doi: 10.1002/ps.8464

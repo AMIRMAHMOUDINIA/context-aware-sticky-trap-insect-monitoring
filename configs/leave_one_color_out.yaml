@@ -1,0 +1,41 @@
+seed: 42
+output_dir: reports/leave_one_color_out
+
+data:
+  manifest: data/metadata.csv
+  image_root: data/raw/figshare
+  target_column: species
+  context_columns: [device, trap_color]
+  split_strategy: leave_one_domain_out
+  train_fraction: 0.80
+  val_fraction: 0.20
+  test_fraction: 0.00
+  group_column: group_id
+  enforce_group_disjoint: true
+  holdout_column: trap_color
+  holdout_value: yellow
+  image_size: 224
+  num_workers: 4
+
+model:
+  backbone: resnet18
+  pretrained: true
+  use_context: true
+  embedding_dim: 8
+  hidden_dim: 128
+  dropout: 0.30
+
+training:
+  epochs: 20
+  batch_size: 32
+  learning_rate: 0.0003
+  weight_decay: 0.0001
+  patience: 5
+  class_weighted_loss: true
+  device: auto
+
+augmentation:
+  horizontal_flip: 0.5
+  vertical_flip: 0.2
+  brightness: 0.15
+  contrast: 0.15
